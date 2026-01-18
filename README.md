@@ -44,40 +44,42 @@ It demonstrates how a production-style scheduled backend job could be built for 
 
 prox-deals-email/
 ├── prox/
-│ ├── main.py # Module entrypoint
-│ ├── cli.py # CLI routing
-│ ├── config.py # Environment loading
+│ ├── **main**.py # Python module entrypoint (python -m prox)
+│ ├── cli.py # CLI command routing
+│ ├── config.py # Environment variable loading
 │ ├── db.py # Supabase client setup
-│ ├── ingest.py # Deal ingestion & deduplication
-│ ├── send_weekly.py # Weekly orchestration logic
-│ └── email_template.py # HTML + text email rendering
+│ ├── ingest.py # Deal ingestion & deduplication logic
+│ ├── send_weekly.py # Weekly orchestration workflow
+│ └── email_template.py # HTML + plain-text email rendering
 │
 ├── data/
-│ ├── deals.json # Sample deal data
-│ └── users.json # Sample users & preferences
+│ ├── deals.json # Sample grocery deals
+│ └── users.json # Sample users & retailer preferences
 │
 ├── output/ # Generated email previews (gitignored)
-├── schema.sql # Database schema
+│
+├── schema.sql # Postgres database schema
 ├── requirements.txt # Python dependencies
 ├── .env.example # Environment variable template
-└── README.md
+├── .gitignore # Git ignore rules
+└── README.md # Project documentation
 
 ---
 
 ## Database Schema (High-Level Diagram)
 
 users
-├── id
+├── id (PK)
 ├── email
 └── name
 
 retailers
-├── id
+├── id (PK)
 └── name
 
 deals
-├── id
-├── retailer_id
+├── id (PK)
+├── retailer_id (FK → retailers.id)
 ├── name
 ├── price
 ├── unit
@@ -86,8 +88,8 @@ deals
 └── end_date
 
 user_retailer_preferences
-├── user_id
-└── retailer_id
+├── user_id (FK → users.id)
+└── retailer_id (FK → retailers.id)
 
 ---
 
