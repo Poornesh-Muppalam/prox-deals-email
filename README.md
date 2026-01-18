@@ -198,8 +198,6 @@ output/
 
 ```
 
-[Live Demo](https://yourusername.github.io/prox-deals-email/output/emma_test_at_example_com.html)
-
 ### Rerunning the pipeline
 
 ```bash
@@ -214,6 +212,42 @@ Each execution regenerates fresh email previews based on the current data.
 
 ```
 
-```
+### Improvements & Next Steps (With 2 More Days)
+
+```bash
+
+1. Real Email Delivery
+
+   - Integrate an email service provider such as Resend, SendGrid, or Amazon SES
+
+   - Extend the CLI with a --send flag while keeping --dry-run as the default
+
+   - Add delivery status tracking and basic retry logic
+
+2. Observability & Monitoring
+
+   - Introduce structured logging for ingestion, filtering, and email generation
+
+   - Track metrics such as:
+
+     1. Number of deals ingested
+
+     2. Number of emails generated
+
+     3. Number of users skipped due to missing preferences
+
+   - Surface errors clearly for easier debugging
+
+3. Data Quality & Ranking Improvements
+
+   - Improve deal ranking using:
+
+     1. Deal freshness
+
+     2. Category relevance
+
+     3. User-specific weighting
+
+   - Normalize pricing units more aggressively (e.g., per-unit pricing)
 
 ```
