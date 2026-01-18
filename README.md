@@ -47,29 +47,30 @@ It demonstrates how a production-style scheduled backend job could be built for 
 ```text
 prox-deals-email/
 ├── prox/
-│ ├── **main**.py # Python module entrypoint (python -m prox)
-│ ├── cli.py # CLI command routing
-│ ├── config.py # Environment variable loading
-│ ├── db.py # Supabase client setup
-│ ├── ingest.py # Deal ingestion & deduplication
-│ ├── send_weekly.py # Weekly orchestration logic
-│ └── email_template.py # HTML + plain-text email rendering
+│ ├── **main**.py           # Python module entrypoint (python -m prox)
+│ ├── cli.py                # CLI command routing
+│ ├── config.py             # Environment variable loading
+│ ├── db.py                 # Supabase client setup
+│ ├── ingest.py             # Deal ingestion & deduplication
+│ ├── send_weekly.py        # Weekly orchestration logic
+│ └── email_template.py     # HTML + plain-text email rendering
 │
 ├── data/
-│ ├── deals.json # Sample grocery deals
-│ └── users.json # Sample users & preferences
+│ ├── deals.json            # Sample grocery deals
+│ └── users.json            # Sample users & preferences
 │
-├── output/ # Generated email previews (gitignored)
+├── output/                 # Generated email previews (gitignored)
 │
-├── schema.sql # Database schema
-├── requirements.txt # Python dependencies
-├── .env.example # Environment variable template
-├── .gitignore # Git ignore rules
-└── README.md # Project documentation
+├── schema.sql              # Database schema
+├── requirements.txt        # Python dependencies
+├── .env.example            # Environment variable template
+├── .gitignore              # Git ignore rules
+└── README.md               # Project documentation
 ```
 
 ## Database Schema (High-Level Diagram)
 
+```text
 users
 ├── id (PK)
 ├── email
@@ -92,8 +93,7 @@ deals
 user_retailer_preferences
 ├── user_id (FK → users.id)
 └── retailer_id (FK → retailers.id)
-
----
+```
 
 ## Environment Variables
 
