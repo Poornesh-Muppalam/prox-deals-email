@@ -42,29 +42,31 @@ It demonstrates how a production-style scheduled backend job could be built for 
 
 ## Project Structure
 
+<details>
+<summary>📂 Click to view Project Structure</summary>
+
 prox-deals-email/
 ├── prox/
-│ ├── **main**.py # Python module entrypoint (python -m prox)
+│ ├── data/
+│ │ ├── deals.json # Sample grocery deals
+│ │ └── users.json # Sample users & retailer preferences
+│ ├── output/ # Generated email previews (gitignored)
 │ ├── cli.py # CLI command routing
 │ ├── config.py # Environment variable loading
 │ ├── db.py # Supabase client setup
+│ ├── email_template.py # HTML + plain-text email rendering
 │ ├── ingest.py # Deal ingestion & deduplication logic
-│ ├── send_weekly.py # Weekly orchestration workflow
-│ └── email_template.py # HTML + plain-text email rendering
-│
-├── data/
-│ ├── deals.json # Sample grocery deals
-│ └── users.json # Sample users & retailer preferences
-│
-├── output/ # Generated email previews (gitignored)
-│
-├── schema.sql # Postgres database schema
-├── requirements.txt # Python dependencies
+│ ├── main.py # Python module entrypoint (python -m prox)
+│ └── send_weekly.py # Weekly orchestration workflow
 ├── .env.example # Environment variable template
 ├── .gitignore # Git ignore rules
-└── README.md # Project documentation
+├── README.md # Project documentation
+├── requirements.txt # Python dependencies
+└── schema.sql # Postgres database schema
 
 ---
+
+</details>
 
 ## Database Schema (High-Level Diagram)
 
