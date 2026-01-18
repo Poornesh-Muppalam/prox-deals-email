@@ -198,6 +198,8 @@ output/
 
 ```
 
+[Live Demo](https://yourusername.github.io/prox-deals-email/output/emma_test_at_example_com.html)
+
 ### Rerunning the pipeline
 
 ```bash
