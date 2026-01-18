@@ -42,37 +42,31 @@ It demonstrates how a production-style scheduled backend job could be built for 
 
 ## Project Structure
 
-erDiagram
-users ||--o{ user_retailer_preferences : has
-retailers ||--o{ user_retailer_preferences : has
-retailers ||--o{ deals : offers
+## Project Structure
 
-    users {
-        int id PK
-        string email
-        string name
-    }
-
-    retailers {
-        int id PK
-        string name
-    }
-
-    deals {
-        int id PK
-        int retailer_id FK
-        string name
-        float price
-        string unit
-        string size
-        date start_date
-        date end_date
-    }
-
-    user_retailer_preferences {
-        int user_id FK
-        int retailer_id FK
-    }
+```text
+prox-deals-email/
+├── prox/
+│ ├── **main**.py # Python module entrypoint (python -m prox)
+│ ├── cli.py # CLI command routing
+│ ├── config.py # Environment variable loading
+│ ├── db.py # Supabase client setup
+│ ├── ingest.py # Deal ingestion & deduplication
+│ ├── send_weekly.py # Weekly orchestration logic
+│ └── email_template.py # HTML + plain-text email rendering
+│
+├── data/
+│ ├── deals.json # Sample grocery deals
+│ └── users.json # Sample users & preferences
+│
+├── output/ # Generated email previews (gitignored)
+│
+├── schema.sql # Database schema
+├── requirements.txt # Python dependencies
+├── .env.example # Environment variable template
+├── .gitignore # Git ignore rules
+└── README.md # Project documentation
+```
 
 ## Database Schema (High-Level Diagram)
 
@@ -124,5 +118,9 @@ python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 
+
+```
+
+```
 
 ```
