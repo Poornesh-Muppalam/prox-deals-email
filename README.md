@@ -42,8 +42,6 @@ It demonstrates how a production-style scheduled backend job could be built for 
 
 ## Project Structure
 
-## Project Structure
-
 ```text
 prox-deals-email/
 ├── prox/
