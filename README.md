@@ -119,6 +119,99 @@ pip install -r requirements.txt
 
 ```
 
+## Run Instructions
+
+This project is executed via a single CLI command that runs the entire weekly pipeline end to end.
+
+### Prerequisites
+
+```bash
+- Before running the project, ensure that:
+
+- The virtual environment is activated
+
+- Dependencies are installed
+
+- A .env file exists (created from .env.example)
+
+- The Supabase database schema from schema.sql has been applied
+
+```
+
+### Run weekly pipeline
+
+```text
+
+python -m prox send-weekly
+
+```
+
+### What This Command Does
+
+```bash
+
+1. Loads environment variables from .env
+
+2. Ingests grocery deals from data/deals.json
+
+3. Normalizes and deduplicates deal records
+
+4. Stores structured data in Supabase (Postgres)
+
+5. Matches deals to users based on preferred retailers
+
+6. Sorts deals by lowest price
+
+7. Selects the top deals per user
+
+8. Groups deals by retailer
+
+9. Generates branded HTML and plain-text email previews
+
+10. Writes the generated previews to the output/ directory
+
+```
+
+### Output
+
+```text
+
+After successful execution, you will see output similar to:
+
+```
+
+```bash
+
+Generated 3 email previews in ./output/
+
+```
+
+```text
+
+Generated files are written to:
+
+```
+
+```bash
+
+output/
+
+```
+
+### Rerunning the pipeline
+
+```bash
+
+python -m prox send-weekly
+
+```
+
+```text
+
+Each execution regenerates fresh email previews based on the current data.
+
+```
+
 ```
 
 ```
